@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,21 +8,22 @@
     <title>task edit</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
+
 <body>
     <h1>投稿論文編集</h1>
-        @if ($errors->any())
-            <div class="error">
-                <p>
-                    <b>{{ count($errors) }}件のエラーがあります。</b>
-                </p>
-                <ul>
-                    @foreach($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-   
+    @if ($errors->any())
+    <div class="error">
+        <p>
+            <b>{{ count($errors) }}件のエラーがあります。</b>
+        </p>
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
     <!-- 更新先はtasksのidにしないと増える php artisan rote:listで確認① -->
     <form action="/tasks/{{ $task->id }}" method="post">
         @csrf
@@ -35,10 +37,11 @@
             <textarea name="body" class="body">{{ old('body', $task->body) }}</textarea>
         </p>
         <div class="">
-        <input type="submit" value="更新">
-        <button onclick="location.href='/tasks/{{ $task->id }}'" formmethod='get'>詳細に戻る</button>
+            <input type="submit" value="更新">
+            <button onclick="location.href='/tasks/{{ $task->id }}'" formmethod='get'>詳細に戻る</button>
         </div>
     </form>
-        
+
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>task show</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
+
 <body>
     <h1>タイトル:{{ $task->title }}</h1>
     <p>{!! nl2br(e($task->body)) !!}</p>
@@ -21,4 +23,5 @@
         </form>
     </div>
 </body>
+
 </html>
